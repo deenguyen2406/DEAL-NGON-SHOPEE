@@ -246,10 +246,15 @@ body {
         gap: 20px;
     }
 
-    .voucher-section,
     .convert-section {
         height: 100%;
         margin-bottom: 0;
+    }
+
+    .left-column {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
     }
 
     /* Nút bấm trên PC to hơn chút */

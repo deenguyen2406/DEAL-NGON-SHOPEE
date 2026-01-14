@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DEAL NGON SOP-PE</title>
+    <link rel="icon" type="image/png" href="shopee-icon.png">
     <!-- Link đến file CSS -->
     <link rel="stylesheet" href="style.css">
     <!-- Font chữ từ Google Fonts (Inter) -->
@@ -21,27 +22,38 @@
         </header>
 
         <main class="home-grid">
-            <!-- SECTION 1: CÁC NÚT LƯU VOUCHER -->
-            <section class="card voucher-section">
-                <h2>🔥 Lưu Mã Giảm Giá</h2>
-                <div class="button-group">
-                    <button id="btnSaveVoucher" class="btn btn-primary">
-                        <span class="icon">💾</span> Lưu Voucher Mới Nhất
-                    </button>
-                    <button id="btnSaveVIP" class="btn btn-secondary">
-                        <span class="icon">⭐</span> Lưu Voucher Shopee VIP
-                    </button>
-                    <button id="btnDeal1k" class="btn btn-primary" style="background-color: #ffc107; color: #000;">
-                        <span class="icon">⚡</span> Deal 1k (Săn Deal Sốc)
-                    </button>
-                    <button id="btnDealIphone" class="btn btn-secondary" style="border-color: #333; color: #333;">
-                        <span class="icon">📱</span> Deal iPhone Ngon
-                    </button>
-                    <button id="btnDealIpad" class="btn btn-secondary" style="border-color: #007bff; color: #007bff;">
-                        <span class="icon">📟</span> Deal iPad Giá Tốt
-                    </button>
-                </div>
-            </section>
+            <div class="left-column">
+                <!-- SECTION 1: CÁC NÚT LƯU VOUCHER -->
+                <section class="card voucher-section">
+                    <h2>🔥 Lưu Mã Giảm Giá</h2>
+                    <div class="button-group">
+                        <button id="btnSaveVoucher" class="btn btn-primary">
+                            <span class="icon">💾</span> Lưu Voucher Mới Nhất
+                        </button>
+                        <button id="btnSaveVIP" class="btn btn-secondary">
+                            <span class="icon">⭐</span> Lưu Voucher Shopee VIP
+                        </button>
+
+                    </div>
+                </section>
+
+                <!-- SECTION 3: DEAL NGON -->
+                <section class="card deal-section">
+                    <h2>📱 Deal Ngon</h2>
+                    <div class="button-group">
+                        <button id="btnDeal1k" class="btn btn-primary" style="background-color: #ffc107; color: #000;">
+                            <span class="icon">⚡</span> Deal 1k (Săn Deal Sốc)
+                        </button>
+                        <button id="btnDealIphone" class="btn btn-secondary" style="border-color: #333; color: #333;">
+                            <span class="icon">📱</span> Deal iPhone Ngon
+                        </button>
+                        <button id="btnDealIpad" class="btn btn-secondary"
+                            style="border-color: #007bff; color: #007bff;">
+                            <span class="icon">📟</span> Deal iPad Giá Tốt
+                        </button>
+                    </div>
+                </section>
+            </div>
 
             <!-- SECTION 2: CHUYỂN ĐỔI LINK -->
             <section class="card convert-section">
