@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEAL NGON SOP-PE</title>
+    <!-- Link đến file CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Font chữ từ Google Fonts (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Shopee Voucher Page</h1>
+            <p>Ở đây có DEAL ngon hơn người yêu cũ!</p>
+        </header>
+
+        <main class="home-grid">
+            <!-- SECTION 1: CÁC NÚT LƯU VOUCHER -->
+            <section class="card voucher-section">
+                <h2>🔥 Lưu Mã Giảm Giá</h2>
+                <div class="button-group">
+                    <button id="btnSaveVoucher" class="btn btn-primary">
+                        <span class="icon">💾</span> Lưu Voucher Mới Nhất
+                    </button>
+                    <button id="btnSaveVIP" class="btn btn-secondary">
+                        <span class="icon">⭐</span> Lưu Voucher Shopee VIP
+                    </button>
+                    <button id="btnDeal1k" class="btn btn-primary" style="background-color: #ffc107; color: #000;">
+                        <span class="icon">⚡</span> Deal 1k (Săn Deal Sốc)
+                    </button>
+                    <button id="btnDealIphone" class="btn btn-secondary" style="border-color: #333; color: #333;">
+                        <span class="icon">📱</span> Deal iPhone Ngon
+                    </button>
+                    <button id="btnDealIpad" class="btn btn-secondary" style="border-color: #007bff; color: #007bff;">
+                        <span class="icon">📟</span> Deal iPad Giá Tốt
+                    </button>
+                </div>
+            </section>
+
+            <!-- SECTION 2: CHUYỂN ĐỔI LINK -->
+            <section class="card convert-section">
+                <h2>🔁 Chuyển Đổi Link Mua Hàng</h2>
+                <div class="input-group">
+                    <label for="originalLink">Dán Link Shopee Gốc:</label>
+                    <input type="text" id="originalLink" placeholder="Ví dụ: https://shopee.vn/product/...">
+                </div>
+                <button id="btnConvert" class="btn btn-action">
+                    <span class="icon">🛒</span> Tạo Link Mua Hàng
+                </button>
+                <p id="statusMessage" class="status-message"></p>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>IP của bạn: <span id="userIP">Đang tải...</span></p>
+            <p>Phiên bản 1.0 - Chạy trên GitHub Pages</p>
+        </footer>
+    </div>
+
+    <!-- Link đến file JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+
+</html>
