@@ -133,7 +133,6 @@
                         currentIP = data.ip;
                         document.getElementById('userIP').textContent = currentIP;
                         document.getElementById('userIP').style.color = '#28a745';
-                        updateLinks();
                     }
                 })
                 .catch(err => {
@@ -141,20 +140,7 @@
                     document.getElementById('userIP').textContent = 'Error';
                 });
         });
-
-        function updateLinks() {
-            const links = document.querySelectorAll('a.shop-link');
-            links.forEach(link => {
-                let originalUrl = link.href;
-                let separator = originalUrl.includes('?') ? '&' : '?';
-                let newUrl = `${originalUrl}${separator}mmp_pid=${AFFILIATE_ID}&utm_content=${currentIP}`;
-                link.href = newUrl;
-            });
-            console.log('Updated ' + links.length + ' links');
-        }
     </script>
 </body>
 
-
 </html>
-

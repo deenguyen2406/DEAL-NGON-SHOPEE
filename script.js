@@ -1,67 +1,55 @@
 // ==========================================
 // CẤU HÌNH CHUNG
 // ==========================================
-const AFFILIATE_ID = 'an_17345950423'; // ID Affiliate cố định
-let currentIP = 'unknown'; // Biến lưu IP người dùng
+const AFFILIATE_ID = 'an_17345950423';
+let currentIP = 'unknown';
 
-// ==========================================
-// 1. LẤY IP NGƯỜI DÙNG KHI TRANG WEB TẢI XONG
-// ==========================================
-// Chúng ta lấy IP ngay từ đầu để sẵn sàng khi người dùng click
 document.addEventListener('DOMContentLoaded', () => {
-    fetchUserIP();
+    fetch('https://api.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+            if (data.ip) {
+                currentIP = data.ip;
+                document.getElementById('userIP').textContent = currentIP;
+                document.getElementById('userIP').style.color = '#28a745';
+            }
+        })
+        .catch(err => {
+            console.error(err);
+            document.getElementById('userIP').textContent = 'Error';
+        });
 });
 
-async function fetchUserIP() {
-    const statusEl = document.getElementById('userIP');
-    try {
-        // Gọi API miễn phí ipify để lấy IP
-        const response = await fetch('https://api.ipify.org?format=json');
-        const data = await response.json();
-
-        if (data.ip) {
-            currentIP = data.ip;
-            statusEl.textContent = currentIP; // Hiển thị IP lên footer
-            statusEl.style.color = '#28a745'; // Màu xanh lá báo thành công
-            console.log('Đã lấy được IP:', currentIP);
-        }
-    } catch (error) {
-        console.error('Lỗi lấy IP:', error);
-        statusEl.textContent = 'Không lấy được IP';
-        statusEl.style.color = '#dc3545'; // Màu đỏ báo lỗi
+// Helper: Hàm lấy link (Không thêm param theo yêu cầu mới)
+function getAffiliateLink(baseUrl) {
+    // Nếu biến SHOPEE_LINKS chưa được load
+    if (typeof SHOPEE_LINKS === 'undefined') {
+        console.error('Không tìm thấy file links.js');
+        return baseUrl;
     }
+    return baseUrl;
 }
 
 // ==========================================
-// 2. XỬ LÝ SỰ KIỆN CLICK NÚT
+// XỬ LÝ SỰ KIỆN CLICK NÚT
 // ==========================================
 
 // --- NÚT 1: LƯU VOUCHER MỚI NHẤT ---
 document.getElementById('btnSaveVoucher').addEventListener('click', () => {
-    // Tạo link đích
-    // Cấu trúc: https://shopee.vn/m/ma-giam-gia?mmp_pid=ID&utm_content=IP
-    const targetUrl = `https://shopee.vn/m/ma-giam-gia?mmp_pid=${AFFILIATE_ID}&utm_content=${currentIP}`;
-
-    // Mở tab mới
+    // Sử dụng link từ file links.js
+    const targetUrl = getAffiliateLink(SHOPEE_LINKS.voucher_new);
     window.open(targetUrl, '_blank');
 });
 
 // --- NÚT 2: LƯU VOUCHER SHOPEE VIP ---
 document.getElementById('btnSaveVIP').addEventListener('click', () => {
-    // Tạo link đích
-    // Cấu trúc: https://shopee.vn/m/goi-ShopeeVIP?mmp_pid=ID
-    const targetUrl = `https://shopee.vn/m/goi-ShopeeVIP?mmp_pid=${AFFILIATE_ID}`;
-
-    // Mở tab mới
+    const targetUrl = getAffiliateLink(SHOPEE_LINKS.voucher_vip);
     window.open(targetUrl, '_blank');
 });
 
 // --- NÚT 3: DEAL 1K ---
 document.getElementById('btnDeal1k').addEventListener('click', () => {
-    // URL cố định cho Deal 1k
-    const targetUrl = `https://shopee.vn/m/shopee-sieu-re?mmp_pid=${AFFILIATE_ID}&uls_trackid=54m4cv8v01po&utm_campaign=id_m58VJTuonR&utm_content=deal1k----&utm_medium=affiliates&utm_source=an_17345950423&utm_term=ea73uzxgo7xc`;
-
-    // Mở tab mới
+    const targetUrl = getAffiliateLink(SHOPEE_LINKS.deal_1k);
     window.open(targetUrl, '_blank');
 });
 
@@ -77,7 +65,7 @@ document.getElementById('btnDealIpad').addEventListener('click', () => {
     window.location.href = 'deals_ipad.html';
 });
 
-// --- NÚT 3: TẠO LINK MUA HÀNG ---
+// --- NÚT 6: TẠO LINK MUA HÀNG ---
 document.getElementById('btnConvert').addEventListener('click', () => {
     const inputEl = document.getElementById('originalLink');
     const msgEl = document.getElementById('statusMessage');
@@ -90,24 +78,12 @@ document.getElementById('btnConvert').addEventListener('click', () => {
         return;
     }
 
-    // 2. Xử lý link (Thêm tham số affiliate)
+    // 2. Link gốc (Không thêm tham số nữa)
     let finalLink = originalLink;
-
-    // Kiểm tra xem link gốc đã có dấu ? chưa để dùng & hay ?
-    if (originalLink.includes('?')) {
-        // Đã có tham số khác -> nối tiếp bằng &
-        finalLink += `&mmp_pid=${AFFILIATE_ID}&utm_content=${currentIP}`;
-    } else {
-        // Chưa có tham số nào -> bắt đầu bằng ?
-        finalLink += `?mmp_pid=${AFFILIATE_ID}&utm_content=${currentIP}`;
-    }
 
     // 3. Thông báo và mở link
     msgEl.textContent = '✅ Đang mở link...';
     msgEl.style.color = '#28a745';
-
-    console.log('Link gốc:', originalLink);
-    console.log('Link sau chuyển đổi:', finalLink);
 
     // Mở ngay lập tức
     window.open(finalLink, '_blank');

@@ -274,7 +274,6 @@
                                                 currentIP = data.ip;
                                                 document.getElementById('userIP').textContent = currentIP;
                                                 document.getElementById('userIP').style.color = '#28a745';
-                                                updateLinks();
                                         }
                                 })
                                 .catch(err => {
@@ -282,24 +281,6 @@
                                         document.getElementById('userIP').textContent = 'Error';
                                 });
                 });
-
-                function updateLinks() {
-                        // Tự động thêm param vào các link shopee trong trang
-                        const links = document.querySelectorAll('a.shop-link');
-                        links.forEach(link => {
-                                let originalUrl = link.href;
-                                // Nếu là link đã có affiliate short link (s.shopee.vn) thì có thể không cần thêm param
-                                // Nhưng nếu là link shopee.vn full thì nên thêm.
-                                // Tuy nhiên, thêm query param vào short link thường vẫn hoạt động an toàn.
-
-                                let separator = originalUrl.includes('?') ? '&' : '?';
-                                let newUrl = `${originalUrl}${separator}mmp_pid=${AFFILIATE_ID}&utm_content=${currentIP}`;
-
-                                // Cập nhật lại href
-                                link.href = newUrl;
-                        });
-                        console.log('Đã cập nhật affiliate info cho ' + links.length + ' links');
-                }
         </script>
 </body>
 
