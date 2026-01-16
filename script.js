@@ -65,6 +65,21 @@ document.getElementById('btnDealIpad').addEventListener('click', () => {
     window.location.href = 'deals_ipad.html';
 });
 
+// --- NÚT 7: DEAL ANDROID ---
+document.getElementById('btnDealAndroid').addEventListener('click', () => {
+    window.location.href = 'deal_android.html';
+});
+
+// --- NÚT 8: DEAL TABLET ANDROID ---
+document.getElementById('btnDealTabletAndroid').addEventListener('click', () => {
+    window.location.href = 'deal_tablet_android.html';
+});
+
+// --- NÚT 9: DEAL ANDROID VN ---
+document.getElementById('btnDealAndroidVN').addEventListener('click', () => {
+    window.location.href = 'deal_android_vn.html';
+});
+
 // --- NÚT 6: TẠO LINK MUA HÀNG ---
 document.getElementById('btnConvert').addEventListener('click', () => {
     const inputEl = document.getElementById('originalLink');
