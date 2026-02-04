@@ -4,14 +4,14 @@
 
 const SHOPEE_LINKS = {
     // 1. Link nút "Lưu Voucher Mới Nhất"
-    voucher_new: "https://s.shopee.vn/3qH15IN2EI",
+    voucher_new: "https://s.shopee.vn/9KcK4AxeHD",
 
     // 2. Link nút "Lưu Voucher Shopee VIP"
-    voucher_vip: "https://s.shopee.vn/3LKkUNOwFB",
+    voucher_vip: "https://s.shopee.vn/9UvkGTx0wE",
 
     // 3. Link nút "Deal 1k"
-    deal_1k: "https://s.shopee.vn/3fxaszNfZH",
+    deal_1k: "https://s.shopee.vn/AUoHSJtCuS",
 
     // 4. Link nút "Voucher Khách Hàng Thân Thiết"
-    voucher_member: "https://s.shopee.vn/4AtrTuLlYO" // Cần cập nhật link
+    voucher_member: "https://s.shopee.vn/AKUrG0tqFR" // Cần cập nhật link
 };
