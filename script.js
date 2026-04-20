@@ -98,11 +98,11 @@ document.getElementById('btnConvert').addEventListener('click', () => {
         return;
     }
 
-    // 2. Link gốc (Không thêm tham số nữa)
-    let finalLink = originalLink;
+    // 2. Chuyển đổi link sang định dạng Affiliate an_redir
+    const finalLink = `https://s.shopee.vn/an_redir?origin_link=${encodeURIComponent(originalLink)}&affiliate_id=17345950423`;
 
     // 3. Thông báo và mở link
-    msgEl.textContent = '✅ Đang mở link...';
+    msgEl.textContent = '✅ Đã chuyển đổi và đang mở link...';
     msgEl.style.color = '#28a745';
 
     // Mở ngay lập tức
